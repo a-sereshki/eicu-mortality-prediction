@@ -1,0 +1,33 @@
+# Data files — never commit patient data
+data/
+*.csv
+*.parquet
+*.db
+*.sqlite
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Environment variables and secrets
+.env
+*.key
+credentials.json
+
+# macOS and editor files
+.DS_Store
+.vscode/
+.idea/
+
+# Model artifacts (too large for git)
+*.pkl
+*.joblib
+*.h5
+models/
