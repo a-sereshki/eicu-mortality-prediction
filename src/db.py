@@ -1,40 +1,46 @@
 """
 Database connection utilities for the eICU mortality prediction project.
 
-Provides a single function `get_engine()` that returns a SQLAlchemy engine
-connected to the local PostgreSQL eICU database. Reused across notebooks
-and scripts to avoid hardcoding connection strings.
+Reads PostgreSQL connection parameters from a .env file at the project root.
+The .env file must not be committed to version control.
 """
 
+import os
+from pathlib import Path
 from urllib.parse import quote_plus
+
+from dotenv import load_dotenv
 from sqlalchemy import create_engine
 from sqlalchemy.engine import Engine
 
-# Local PostgreSQL connection parameters
-# NOTE: password is hardcoded for local development only
-# Will be moved to environment variable before repo goes public for recruiters
-DB_USER = "postgres"
-DB_PASSWORD = "***REMOVED***"
-DB_HOST = "localhost"
-DB_PORT = 5432
-DB_NAME = "eicu"
+# Load .env from the project root, overriding any stale shell env vars
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+load_dotenv(PROJECT_ROOT / ".env", override=True)
 
 
 def get_engine() -> Engine:
-    """Return a SQLAlchemy engine connected to the local eICU database."""
-    # URL-encode the password so special characters (@, :, /, etc.) don't
-    # break the connection URL parsing
-    encoded_password = quote_plus(DB_PASSWORD)
+    """Return a SQLAlchemy engine connected to the local eICU database.
+
+    Requires DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, DB_NAME to be set
+    in the .env file at the project root.
+    """
+    db_user = os.environ["DB_USER"]
+    db_password = os.environ["DB_PASSWORD"]
+    db_host = os.environ["DB_HOST"]
+    db_port = os.environ["DB_PORT"]
+    db_name = os.environ["DB_NAME"]
+
+    # URL-encode the password so special characters don't break URL parsing
+    encoded_password = quote_plus(db_password)
 
     connection_string = (
-        f"postgresql+psycopg2://{DB_USER}:{encoded_password}"
-        f"@{DB_HOST}:{DB_PORT}/{DB_NAME}"
+        f"postgresql+psycopg2://{db_user}:{encoded_password}"
+        f"@{db_host}:{db_port}/{db_name}"
     )
     return create_engine(connection_string)
 
 
 if __name__ == "__main__":
-    # Quick connection test when this file is run directly
     import pandas as pd
 
     engine = get_engine()
