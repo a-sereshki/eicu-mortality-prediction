@@ -84,4 +84,4 @@ The eICU Demo contains 1,424 patients across 186 hospitals. With only ~30 deaths
 
 ## Author
 
-**Azadeh Aghamohammadi-Sereshki** — MASc Biomedical Engineering, University of Toronto
+**Azadeh Sereshki** — MASc Biomedical Engineering, University of Toronto
