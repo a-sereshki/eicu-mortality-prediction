@@ -1,5 +1,4 @@
 # Data files — never commit patient data
-data/
 *.csv
 *.parquet
 *.db
@@ -30,4 +29,19 @@ credentials.json
 *.pkl
 *.joblib
 *.h5
-models/
+
+# Allow specific files needed for Streamlit deployment
+!models/lightgbm_model.pkl
+!data/feature_template.json
+!data/feature_defaults.json
+!data/feature_modes.json
+
+# Trained models (commit only the deployed one)
+models/*
+!models/lightgbm_model.pkl
+
+# Data files (commit only deployment-needed JSON, never patient data)
+data/*
+!data/feature_template.json
+!data/feature_defaults.json
+!data/feature_modes.json
