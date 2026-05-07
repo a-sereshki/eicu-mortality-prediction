@@ -2,6 +2,8 @@
 
 A clinical machine learning project that predicts in-hospital mortality from the first 24 hours of ICU data, with a focus on cross-hospital generalization.
 
+**🚀 [Try the live interactive demo](https://eicu-mortality-prediction-cfyzvung7fmczatg9dknhp.streamlit.app/)** — enter patient vitals and labs, see model predictions with SHAP explanations.
+
 **Headline result: ROC-AUC 0.83 within distribution, 0.79 ± 0.01 across held-out hospital size categories — quantifying the real-world deployment gap most published clinical ML models leave unexamined.**
 
 ## Why this project
