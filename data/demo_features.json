@@ -1,0 +1,34 @@
+{
+  "features": [
+    "age",
+    "gender_male",
+    "bmi",
+    "gcs_mean",
+    "hr_mean",
+    "sbp_mean",
+    "map_mean",
+    "rr_mean",
+    "spo2_mean",
+    "temp_mean",
+    "bun_max",
+    "creatinine_max",
+    "glucose_min",
+    "wbc_mean"
+  ],
+  "medians": {
+    "age": 67.0,
+    "gender_male": 1.0,
+    "bmi": 27.548226352630778,
+    "gcs_mean": 15.0,
+    "hr_mean": 83.2135231316726,
+    "sbp_mean": 118.54285714285714,
+    "map_mean": 79.91836734693878,
+    "rr_mean": 19.094405594405593,
+    "spo2_mean": 96.91489361702128,
+    "temp_mean": 36.8,
+    "bun_max": 21.0,
+    "creatinine_max": 1.045,
+    "glucose_min": 117.0,
+    "wbc_mean": 10.245000000000001
+  }
+}

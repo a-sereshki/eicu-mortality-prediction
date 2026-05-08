@@ -32,16 +32,20 @@ credentials.json
 
 # Allow specific files needed for Streamlit deployment
 !models/lightgbm_model.pkl
+!models/demo_model.pkl
 !data/feature_template.json
+!data/demo_features.json
 !data/feature_defaults.json
 !data/feature_modes.json
 
 # Trained models (commit only the deployed one)
 models/*
 !models/lightgbm_model.pkl
+!models/demo_model.pkl
 
 # Data files (commit only deployment-needed JSON, never patient data)
 data/*
 !data/feature_template.json
+!data/demo_features.json
 !data/feature_defaults.json
 !data/feature_modes.json
